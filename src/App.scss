@@ -1,3 +1,16 @@
+@import 'utils/variables.scss';
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
 .app {
-	background-color: peachpuff;
+	background-color: darkseagreen;
+	font-size: 16px;
+	color: $black;
+	font-family: 'Courier New', Courier, monospace;
+	text-align: center;
+	line-height: 1.2;
 }
