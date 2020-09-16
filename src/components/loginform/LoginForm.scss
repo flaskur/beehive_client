@@ -1,3 +1,5 @@
+@import '../../utils/variables.scss';
+
 .loginform {
 	display: flex;
 	flex-direction: column;
@@ -6,6 +8,7 @@
 	height: 400px;
 
 	&__form {
+		background-color: #daf7a6;
 		border: 1px solid black;
 		display: flex;
 		flex-direction: column;
@@ -15,6 +18,8 @@
 		padding: 20px;
 		height: 300px;
 		width: 350px;
+		border: none;
+		border-radius: 20px;
 	}
 
 	&__username {
