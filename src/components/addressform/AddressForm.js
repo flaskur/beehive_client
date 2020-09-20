@@ -19,9 +19,9 @@ const AddressForm = ({ showStatistics }) => {
 				'content-type': 'application/json',
 			},
 			body: JSON.stringify({
-				address: addressInput,
-				city: cityInput,
-				state: stateInput,
+				address: addressInput.toLowerCase(),
+				city: cityInput.toLowerCase(),
+				state: stateInput.toLowerCase(),
 				zipcode: zipcodeInput,
 			}),
 		});
