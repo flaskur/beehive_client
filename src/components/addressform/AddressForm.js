@@ -1,18 +1,35 @@
 import React, { useState } from 'react';
 import './AddressForm.scss';
 
-const AddressForm = () => {
+const AddressForm = ({ showStatistics }) => {
 	const [ addressInput, setAddressInput ] = useState('');
 	const [ cityInput, setCityInput ] = useState('');
 	const [ stateInput, setStateInput ] = useState('Utah');
 	const [ zipcodeInput, setZipcodeInput ] = useState('');
 
-	const handleFormSubmit = (event) => {
+	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 
 		console.log('address form submits');
 
-		// need to validate state values before doing the fetch call
+		// this is suppose to fetch all the possible data from every single site, but for now we focus on one site to scrape
+		const response = await fetch('http://localhost:3001/search', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({
+				address: addressInput,
+				city: cityInput,
+				state: stateInput,
+				zipcode: zipcodeInput,
+			}),
+		});
+		const data = response.json();
+		console.log(data);
+
+		// from the given data, we are suppose to showcase on main page, so maybe use a outer function
+		showStatistics();
 	};
 
 	return (
