@@ -7,6 +7,10 @@
 	align-items: center;
 	height: 400px;
 
+	&__error {
+		color: red;
+	}
+
 	&__form {
 		background-color: #daf7a6;
 		border: 1px solid black;

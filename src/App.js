@@ -20,7 +20,7 @@ const App = () => {
 	return (
 		<div className='app'>
 			<p>This is a test</p>
-			<Navbar isAuth={isAuth} />
+			<Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
 
 			<Switch>
 				<Route exact path='/' render={() => (isAuth ? <Home /> : <Login setIsAuth={setIsAuth} />)} />

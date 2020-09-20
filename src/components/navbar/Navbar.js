@@ -2,9 +2,11 @@ import React from 'react';
 import './Navbar.scss';
 import logo from '../../assets/beehive_logo.png';
 
-const Navbar = ({ isAuth }) => {
+const Navbar = ({ isAuth, setIsAuth }) => {
 	const handleLogoutClick = (event) => {
 		console.log('logout was clicked and it should remove the jwt token');
+		localStorage.removeItem('token');
+		setIsAuth(false);
 	};
 
 	return (
