@@ -7,7 +7,7 @@ import Navbar from './components/navbar/Navbar';
 import About from './components/about/About';
 
 const App = () => {
-	const [ isAuth, setIsAuth ] = useState(true);
+	const [ isAuth, setIsAuth ] = useState(false);
 
 	// on initial load, check if jwt exists in local storage to authenticate
 	useEffect(() => {
@@ -23,9 +23,8 @@ const App = () => {
 			<Navbar isAuth={isAuth} />
 
 			<Switch>
-				<Route exact path='/'>
-					{isAuth ? <Home /> : <Login />}
-				</Route>
+				<Route exact path='/' render={() => (isAuth ? <Home /> : <Login setIsAuth={setIsAuth} />)} />
+
 				<Route exact path='/about'>
 					<About />
 				</Route>

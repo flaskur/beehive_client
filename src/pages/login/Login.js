@@ -2,11 +2,11 @@ import React from 'react';
 import './Login.scss';
 import LoginForm from '../../components/loginform/LoginForm';
 
-const Login = () => {
+const Login = ({ setIsAuth }) => {
 	return (
 		<div className='login'>
 			<p>login page</p>
-			<LoginForm />
+			<LoginForm setIsAuth={setIsAuth} />
 		</div>
 	);
 };

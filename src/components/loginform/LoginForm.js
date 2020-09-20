@@ -1,21 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import './LoginForm.scss';
 
-const LoginForm = () => {
+const LoginForm = ({ setIsAuth }) => {
 	const [ usernameInput, setUsernameInput ] = useState('');
 	const [ passwordInput, setPasswordInput ] = useState('');
+	const [ errorMessage, setErrorMessage ] = useState(''); // if login fails
 
-	const handleFormSubmit = (event) => {
+	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 
 		console.log(`form submits with username ${usernameInput} and password ${passwordInput}`);
 
-		// need to validate the username and password
+		// post login request return json response with token and error
+		const response = await fetch('http://localhost:3001/login', {
+			method: 'POST',
+			headers: {
+				'content-type': 'application/json',
+			},
+			body: JSON.stringify({
+				username: usernameInput,
+				password: passwordInput,
+			}),
+		});
+		const data = await response.json(); // convert from json string into json object
+
+		// server failed for some reason
+		if (data.error) {
+			setErrorMessage(data.error);
+			return;
+		}
+
+		// otherwise set localstorage token to verify login
+		localStorage.setItem('token', data.token);
+
+		setIsAuth(true); // sets our page to home page
 	};
 
 	return (
 		<div className='loginform'>
 			<p>Please enter your username and password</p>
+
+			<p className='loginform__error'>{errorMessage}</p>
 
 			<form className='loginform__form' onSubmit={handleFormSubmit}>
 				<div className='loginform__username'>
