@@ -13,7 +13,7 @@ const AddressForm = ({ showStatistics }) => {
 		console.log('address form submits');
 
 		// this is suppose to fetch all the possible data from every single site, but for now we focus on one site to scrape
-		const response = await fetch('http://localhost:3001/search', {
+		const response = await fetch('http://localhost:5000/search', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
@@ -25,7 +25,7 @@ const AddressForm = ({ showStatistics }) => {
 				zipcode: zipcodeInput,
 			}),
 		});
-		const data = response.json();
+		const data = await response.json();
 		console.log(data);
 
 		// from the given data, we are suppose to showcase on main page, so maybe use a outer function
