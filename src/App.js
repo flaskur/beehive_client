@@ -25,6 +25,10 @@ const App = () => {
 			<Switch>
 				<Route exact path='/' render={() => (isAuth ? <Home /> : <Login setIsAuth={setIsAuth} />)} />
 
+				<Route exact path='/login'>
+					<Login setIsAuth={setIsAuth} />
+				</Route>
+
 				<Route exact path='/about'>
 					<About />
 				</Route>
