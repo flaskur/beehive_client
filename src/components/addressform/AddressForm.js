@@ -2,26 +2,61 @@ import React, { useState } from 'react';
 import './AddressForm.scss';
 
 const AddressForm = ({ showStatistics }) => {
-	const [ addressInput, setAddressInput ] = useState('');
-	const [ cityInput, setCityInput ] = useState('');
-	const [ stateInput, setStateInput ] = useState('Utah');
-	const [ zipcodeInput, setZipcodeInput ] = useState('');
-
+	const [ houseNumInput, setHouseNumInput ] = useState('2451');
+	const [ streetNameInput, setStreetNameInput ] = useState('e ellisonwoods ave');
+	const [ zipcodeInput, setZipcodeInput ] = useState('84121');
+	const [ errorMessage, setErrorMessage ] = useState('')
+	
 	const handleFormSubmit = async (event) => {
 		event.preventDefault();
 
 		console.log('address form submits');
 
+		// house num validation
+		// for (let i = 0; i < houseNumInput.length; i++) {
+		// 	let val = parseInt(houseNumInput[i], 10);
+		// 	console.log(val, i, isNaN(val));
+		// 	let val2 = isNaN(parseInt(houseNumInput[i], 10));
+		// 	console.log(val, val2);
+			
+		// 	// if any char in house num is not a num, invalid
+		// 	if (val2) {
+		// 		console.log(val2, 'triggers')
+		// 		console.log(i, 'house num not a number');
+
+		// 		setErrorMessage('Invalid House Number');
+		// 		return;
+		// 	}
+		// }
+
+		// zipcode validation
+		// if (zipcodeInput.length !== 5) {
+		// 	console.log('zipcode not a number');
+
+		// 	setErrorMessage('Invalid Zipcode')
+		// 	return;
+		// }
+		// for (let i = 0; i < zipcodeInput.length; i++) {
+		// 	// if any char in zipcode is not a num, invalid
+		// 	// if any char in house num is not a num, invalid
+		// 	if (isNaN(parseInt(houseNumInput[i], 10))) {
+		// 		console.log('house num not a number');
+
+		// 		setErrorMessage('Invalid House Number');
+		// 		return;
+		// 	}
+		// }
+		
+
 		// this is suppose to fetch all the possible data from every single site, but for now we focus on one site to scrape
-		const response = await fetch('http://localhost:5000/search', {
+		const response = await fetch('http://localhost:5000/scrape', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
 			},
 			body: JSON.stringify({
-				address: addressInput.toLowerCase(),
-				city: cityInput.toLowerCase(),
-				state: stateInput.toLowerCase(),
+				houseNum: houseNumInput,
+				streetName: streetNameInput.toLowerCase(),
 				zipcode: zipcodeInput,
 			}),
 		});
@@ -36,45 +71,36 @@ const AddressForm = ({ showStatistics }) => {
 		<div className='addressform'>
 			<p>addressform component</p>
 
-			<form className='addressform__form' onSubmit={handleFormSubmit}>
-				<div className='addressform__address'>
-					<label className='addressform__address__label'>Address</label>
-					<input
-						className='addressform__address__input'
-						type='text'
-						name='address'
-						value={addressInput}
-						placeholder={'address'}
-						onChange={(event) => setAddressInput(event.target.value)}
-						required
-					/>
-				</div>
+			<p className='addressform__error'>{errorMessage}</p>
 
-				<div className='addressform__lower'>
-					<div className='addressform__city'>
-						<label className='addressform__city__label'>City</label>
+			<form className='addressform__form' onSubmit={handleFormSubmit}>
+				<div className='addressform__upper'>
+					<div className='addressform__housenum'>
+						<label className='addressform__housenum__label'>House Number</label>
 						<input
-							className='addressform__city__input'
+							className='addressform__housenum__input'
 							type='text'
-							name='city'
-							value={cityInput}
-							placeholder={'city'}
-							onChange={(event) => setCityInput(event.target.value)}
+							name='housenum'
+							value={houseNumInput}
+							placeholder='house number'
+							onChange={(event) => setHouseNumInput(event.target.value)}
 							required
 						/>
 					</div>
-					<div className='addressform__state'>
-						<label className='addressform__state__label'>State</label>
+
+					<div className='addressform__streetname'>
+						<label className='addressform__streetname__label'>Street Name</label>
 						<input
-							className='addressform__state__input'
+							className='addressform__streetname__input'
 							type='text'
-							name='state'
-							value={stateInput}
-							placeholder={'state'}
-							onChange={(event) => setStateInput(event.target.value)}
+							name='streetname'
+							value={streetNameInput}
+							placeholder='street name'
+							onChange={(event) => setStreetNameInput(event.target.value)}
 							required
 						/>
 					</div>
+
 					<div className='addressform__zipcode'>
 						<label className='addressform__zipcode__label'>Zipcode</label>
 						<input
@@ -88,7 +114,7 @@ const AddressForm = ({ showStatistics }) => {
 						/>
 					</div>
 				</div>
-
+			
 				<button className='addressform__submit' type='submit'>
 					Search!
 				</button>
