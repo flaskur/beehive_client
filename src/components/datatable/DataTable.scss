@@ -1,0 +1,20 @@
+.datatable {
+	&__table {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 20px;
+	}
+
+	&__column {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center;
+		padding: 20px;
+	}
+
+	&__row {
+		padding: 15px;
+	}
+}
