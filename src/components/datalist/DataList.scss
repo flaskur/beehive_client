@@ -1,0 +1,16 @@
+.datalist {
+	&__row {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 10px;
+	}
+
+	&__accessor {
+		border: 2px solid black;
+	}
+
+	&__redfin {
+		border: 2px solid black;
+	}
+}
