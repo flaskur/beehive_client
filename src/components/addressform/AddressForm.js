@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import './AddressForm.scss';
 
-const AddressForm = ({ showStatistics }) => {
-	const [ houseNumInput, setHouseNumInput ] = useState('2451');
-	const [ streetNameInput, setStreetNameInput ] = useState('e ellisonwoods ave');
-	const [ zipcodeInput, setZipcodeInput ] = useState('84121');
+const AddressForm = ({ setData }) => {
+	const [ houseNumInput, setHouseNumInput ] = useState('290');
+	const [ streetNameInput, setStreetNameInput ] = useState('w 300 s');
+	const [ zipcodeInput, setZipcodeInput ] = useState('84032');
 	const [ errorMessage, setErrorMessage ] = useState('')
 	
 	const handleFormSubmit = async (event) => {
@@ -13,42 +13,16 @@ const AddressForm = ({ showStatistics }) => {
 		console.log('address form submits');
 
 		// house num validation
-		// for (let i = 0; i < houseNumInput.length; i++) {
-		// 	let val = parseInt(houseNumInput[i], 10);
-		// 	console.log(val, i, isNaN(val));
-		// 	let val2 = isNaN(parseInt(houseNumInput[i], 10));
-		// 	console.log(val, val2);
-			
-		// 	// if any char in house num is not a num, invalid
-		// 	if (val2) {
-		// 		console.log(val2, 'triggers')
-		// 		console.log(i, 'house num not a number');
-
-		// 		setErrorMessage('Invalid House Number');
-		// 		return;
-		// 	}
-		// }
-
-		// zipcode validation
-		// if (zipcodeInput.length !== 5) {
-		// 	console.log('zipcode not a number');
-
-		// 	setErrorMessage('Invalid Zipcode')
-		// 	return;
-		// }
-		// for (let i = 0; i < zipcodeInput.length; i++) {
-		// 	// if any char in zipcode is not a num, invalid
-		// 	// if any char in house num is not a num, invalid
-		// 	if (isNaN(parseInt(houseNumInput[i], 10))) {
-		// 		console.log('house num not a number');
-
-		// 		setErrorMessage('Invalid House Number');
-		// 		return;
-		// 	}
-		// }
+		if (isNaN(houseNumInput)) {
+			setErrorMessage('INVALID HOUSE NUMBER')
+			return;
+		}
 		
+		if (zipcodeInput.length !== 5 || isNaN(zipcodeInput)) {
+			setErrorMessage('INVALID ZIPCODE')
+			return;
+		}
 
-		// this is suppose to fetch all the possible data from every single site, but for now we focus on one site to scrape
 		const response = await fetch('http://localhost:5000/scrape', {
 			method: 'POST',
 			headers: {
@@ -63,8 +37,7 @@ const AddressForm = ({ showStatistics }) => {
 		const data = await response.json();
 		console.log(data);
 
-		// from the given data, we are suppose to showcase on main page, so maybe use a outer function
-		showStatistics();
+		setData(data);
 	};
 
 	return (
