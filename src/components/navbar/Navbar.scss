@@ -3,22 +3,52 @@
 .navbar {
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
+	align-items: stretch;
 	background-color: $yelloworange;
 	width: 100%;
-	padding: 20px;
+	margin-bottom: 50px;
+	border: 1px solid black;
 
 	&__logo {
+		border: 1px solid black;
+		padding: 10px 40px;
+		background-color: black;
+
 		&__image {
-			height: 60px;
-			width: 60px;
+			height: 100px;
+			width: 100px;
 		}
 	}
 
 	&__title {
 		font-size: 24px;
+		border: 1px solid black;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
 	}
 
 	&__links {
+		border: 1px solid black;
+		width: 200px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		&__logout {
+			text-decoration: none;
+			border: none;
+			padding: 10px 20px;
+			background-color: white;
+			border-radius: 10px;
+			font-size: 16px;
+			box-shadow: 2px 2px 2px rgba(0, 0, 0, .25);
+
+			&:active {
+				transform: translate(2px, 2px);
+				box-shadow: 1px 1px 1px rgba(0, 0, 0, .25);
+			}
+		}
 	}
 }

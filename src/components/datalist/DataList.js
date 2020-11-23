@@ -8,9 +8,7 @@ const DataList = ({data: {accessor, redfin}}) => {
 	const getAccessorContent = (accessor) => {
 		let content = [];
 		for (let key in accessor) {
-			if (key === 'error' || key === 'val_history' || key === 'det_structures') {
-				continue;
-			}
+			if (key === 'error' || key === 'val_history' || key === 'det_structures' || key === 'url') continue;
 			
 			content.push(
 				<div className='datalist__row' key={key}>
@@ -25,6 +23,8 @@ const DataList = ({data: {accessor, redfin}}) => {
 	const getRedfinContent = (redfin) => {
 		let content = [];
 		for (let key in redfin) {
+			if (key === 'url') continue;
+			
 			content.push(
 				<div className='datalist__row' key={key}>
 					<p>{key}</p>

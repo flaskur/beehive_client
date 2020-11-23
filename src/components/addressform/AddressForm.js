@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './AddressForm.scss';
 
-const AddressForm = ({ setData }) => {
+const AddressForm = ({ setData, setStatus }) => {
 	const [ houseNumInput, setHouseNumInput ] = useState('');
 	const [ streetNameInput, setStreetNameInput ] = useState('');
 	const [ zipcodeInput, setZipcodeInput ] = useState('');
@@ -23,6 +23,8 @@ const AddressForm = ({ setData }) => {
 			return;
 		}
 
+		setStatus('SCRAPING...');
+
 		const response = await fetch('http://localhost:5000/scrape', {
 			method: 'POST',
 			headers: {
@@ -34,6 +36,9 @@ const AddressForm = ({ setData }) => {
 				zipcode: zipcodeInput,
 			}),
 		});
+
+		setStatus('FINISHED')
+		
 		const data = await response.json();
 		console.log(data);
 
@@ -42,7 +47,7 @@ const AddressForm = ({ setData }) => {
 
 	return (
 		<div className='addressform'>
-			<p>addressform component</p>
+			<h3>ENTER ADDRESS</h3>
 
 			<p className='addressform__error'>{errorMessage}</p>
 

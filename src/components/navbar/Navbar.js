@@ -19,7 +19,7 @@ const Navbar = ({ isAuth, setIsAuth }) => {
 				<p className='navbar__title__text'>Property Evaluation Tool</p>
 			</div>
 
-			<div className='navbar__links'>{isAuth && <button onClick={handleLogoutClick}>Logout</button>}</div>
+			<div className='navbar__links'>{isAuth && <button className='navbar__links__logout' onClick={handleLogoutClick}>Logout</button>}</div>
 		</div>
 	);
 };

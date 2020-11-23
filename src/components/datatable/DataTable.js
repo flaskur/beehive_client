@@ -59,7 +59,7 @@ const DataTable = ({data: {accessor, redfin}}) => {
 						{
 							redfin.url ?
 							<a href={redfin.url} target='_blank' rel='noopener noreferrer'>LINK</a> :
-							<p>'---'</p>
+							<p>---</p>
 						}
 					</div>
 					{getContent(redfin)}
