@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import './AddressForm.scss';
 
 const AddressForm = ({ setData }) => {
-	const [ houseNumInput, setHouseNumInput ] = useState('290');
-	const [ streetNameInput, setStreetNameInput ] = useState('w 300 s');
-	const [ zipcodeInput, setZipcodeInput ] = useState('84032');
+	const [ houseNumInput, setHouseNumInput ] = useState('');
+	const [ streetNameInput, setStreetNameInput ] = useState('');
+	const [ zipcodeInput, setZipcodeInput ] = useState('');
 	const [ errorMessage, setErrorMessage ] = useState('')
 	
 	const handleFormSubmit = async (event) => {

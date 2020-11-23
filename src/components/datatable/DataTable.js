@@ -28,6 +28,7 @@ const DataTable = ({data: {accessor, redfin}}) => {
 			<div className='datatable__table'>
 				<div className='datatable__column'>
 					<div className='datatable__row'>EMPTY</div>
+					<div className='datatable__row'>URL</div>
 					<div className='datatable__row'>MARKET VALUE</div>
 					<div className='datatable__row'>OWNER</div>
 					<div className='datatable__row'>PARCEL ID</div>
@@ -41,11 +42,26 @@ const DataTable = ({data: {accessor, redfin}}) => {
 
 				<div className='datatable__column'>
 					<div className='datatable__row'>ACCESSOR</div>
+					<div className='datatable__row'>
+						{
+							accessor.url ?
+							<a href={accessor.url} target='_blank' rel='noopener noreferrer'>LINK</a>:							
+							<p>---</p>
+						}
+					</div>
 					{getContent(accessor)}
 				</div>
 
 				<div className='datatable__column'>
 					<div className='datatable__row'>REDFIN</div>
+
+					<div className='datatable__row'>
+						{
+							redfin.url ?
+							<a href={redfin.url} target='_blank' rel='noopener noreferrer'>LINK</a> :
+							<p>'---'</p>
+						}
+					</div>
 					{getContent(redfin)}
 				</div>
 			</div>

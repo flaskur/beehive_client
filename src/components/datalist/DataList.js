@@ -8,6 +8,10 @@ const DataList = ({data: {accessor, redfin}}) => {
 	const getAccessorContent = (accessor) => {
 		let content = [];
 		for (let key in accessor) {
+			if (key === 'error' || key === 'val_history' || key === 'det_structures') {
+				continue;
+			}
+			
 			content.push(
 				<div className='datalist__row' key={key}>
 					<p>{key}</p>
@@ -38,7 +42,7 @@ const DataList = ({data: {accessor, redfin}}) => {
 			<h1>Data List</h1>
 
 			<div>
-				<h1>ACCESSOR SHOULD BE DYNAMIC</h1>
+				{accessor.county && <h1>{accessor.county}</h1>}
 				<div className='datalist__accessor'>{getAccessorContent(accessor)}</div>
 			</div>
 
