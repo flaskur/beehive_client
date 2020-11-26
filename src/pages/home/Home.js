@@ -12,7 +12,7 @@ const Home = () => {
 		<div className='home'>
 			<AddressForm setData={setData} setStatus={setStatus}/>
 
-			<h3>STATUS: {status}</h3>
+			<h2 className='home__status'>STATUS: {status}</h2>
 
 			{
 				Object.keys(data).length !== 0 

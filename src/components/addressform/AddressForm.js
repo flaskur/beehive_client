@@ -47,7 +47,7 @@ const AddressForm = ({ setData, setStatus }) => {
 
 	return (
 		<div className='addressform'>
-			<h3>ENTER ADDRESS</h3>
+			<h2 className='addressform__title'>ENTER ADDRESS</h2>
 
 			<p className='addressform__error'>{errorMessage}</p>
 

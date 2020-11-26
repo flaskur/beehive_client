@@ -26,8 +26,8 @@ const DataTable = ({data: {accessor, redfin}}) => {
 			<h1>DATA TABLE</h1>
 
 			<div className='datatable__table'>
-				<div className='datatable__column'>
-					<div className='datatable__row'>EMPTY</div>
+				<div className='datatable__column datatable__info'>
+					<div className='datatable__row'>X</div>
 					<div className='datatable__row'>URL</div>
 					<div className='datatable__row'>MARKET VALUE</div>
 					<div className='datatable__row'>OWNER</div>
@@ -41,7 +41,7 @@ const DataTable = ({data: {accessor, redfin}}) => {
 				</div>
 
 				<div className='datatable__column'>
-					<div className='datatable__row'>ACCESSOR</div>
+					<div className='datatable__row datatable__header'>ACCESSOR</div>
 					<div className='datatable__row'>
 						{
 							accessor.url ?
@@ -53,7 +53,7 @@ const DataTable = ({data: {accessor, redfin}}) => {
 				</div>
 
 				<div className='datatable__column'>
-					<div className='datatable__row'>REDFIN</div>
+					<div className='datatable__row datatable__header'>REDFIN</div>
 
 					<div className='datatable__row'>
 						{

@@ -1,9 +1,25 @@
 .datalist {
+	&__list {
+		margin-bottom: 50px;
+	}
+
 	&__row {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		padding: 10px;
+	}
+
+	&__row:nth-child(odd) {
+		background-color: white;
+	}
+
+	&__row:nth-child(even) {
+		background-color: gainsboro;
+	}
+
+	&__row:not(&__row:last-child) {
+		border-bottom: 2px solid black;
 	}
 
 	&__accessor {

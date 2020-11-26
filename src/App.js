@@ -19,7 +19,6 @@ const App = () => {
 
 	return (
 		<div className='app'>
-			<p>This is a test</p>
 			<Navbar isAuth={isAuth} setIsAuth={setIsAuth} />
 
 			<Switch>

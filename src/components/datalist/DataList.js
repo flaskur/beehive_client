@@ -38,16 +38,14 @@ const DataList = ({data: {accessor, redfin}}) => {
 	
 	return (
 
-		<div>
-			<h1>Data List</h1>
-
-			<div>
-				{accessor.county && <h1>{accessor.county}</h1>}
+		<div className='datalist'>
+			<div className='datalist__list'>
+				{accessor.county && <h1 className='datalist__title'>{accessor.county}</h1>}
 				<div className='datalist__accessor'>{getAccessorContent(accessor)}</div>
 			</div>
 
-			<div>
-				<h1>REDFIN</h1>
+			<div className='datalist__list'>
+				<h1 className='datalist__title'>REDFIN</h1>
 				<div className='datalist__redfin'>{getRedfinContent(redfin)}</div>
 			</div>
 			
