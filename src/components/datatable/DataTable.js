@@ -2,9 +2,6 @@ import React from 'react';
 import './DataTable.scss';
 
 const DataTable = ({data: {accessor, redfin}}) => {
-	console.log(accessor);
-	console.log(redfin);
-
 	const getContent = (data) => {
 		let content = [];
 

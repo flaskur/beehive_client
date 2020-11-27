@@ -2,9 +2,6 @@ import React from 'react';
 import './DataList.scss';
 
 const DataList = ({data: {accessor, redfin}}) => {
-	console.log(accessor);
-	console.log(redfin)
-
 	const getAccessorContent = (accessor) => {
 		let content = [];
 		for (let key in accessor) {
