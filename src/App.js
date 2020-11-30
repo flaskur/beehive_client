@@ -7,7 +7,7 @@ import Navbar from './components/navbar/Navbar';
 import About from './components/about/About';
 
 const App = () => {
-	const [ isAuth, setIsAuth ] = useState(true);
+	const [ isAuth, setIsAuth ] = useState(false);
 
 	// on initial load, check if jwt exists in local storage to authenticate
 	useEffect(() => {

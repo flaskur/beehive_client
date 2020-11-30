@@ -25,6 +25,7 @@
 		padding: 15px;
 		height: 100%;
 		width: 100%;
+		white-space: nowrap;
 	}
 
 	&__row:not(&__row:last-child) {
