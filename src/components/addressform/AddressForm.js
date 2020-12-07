@@ -25,7 +25,8 @@ const AddressForm = ({ setData, setStatus }) => {
 
 		setStatus('SCRAPING...');
 
-		const response = await fetch('https://still-reaches-34591.herokuapp.com/scrape', {
+		// still-reaches-34591.herokuapp.com
+		const response = await fetch('http://localhost:5000/scrape', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',
