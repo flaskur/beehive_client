@@ -17,21 +17,21 @@ const DataList = ({data: {accessor, redfin}}) => {
 
 		return content;
 	};
-	const getRedfinContent = (redfin) => {
-		let content = [];
-		for (let key in redfin) {
-			if (key === 'url') continue;
+	// const getRedfinContent = (redfin) => {
+	// 	let content = [];
+	// 	for (let key in redfin) {
+	// 		if (key === 'url') continue;
 			
-			content.push(
-				<div className='datalist__row' key={key}>
-					<p>{key}</p>
-					<p>{redfin[key]}</p>
-				</div>
-			);
-		}
+	// 		content.push(
+	// 			<div className='datalist__row' key={key}>
+	// 				<p>{key}</p>
+	// 				<p>{redfin[key]}</p>
+	// 			</div>
+	// 		);
+	// 	}
 
-		return content;
-	};
+	// 	return content;
+	// };
 	
 	return (
 
