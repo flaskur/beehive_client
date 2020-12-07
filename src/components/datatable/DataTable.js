@@ -49,7 +49,7 @@ const DataTable = ({data: {accessor, redfin}}) => {
 					{getContent(accessor)}
 				</div>
 
-				<div className='datatable__column'>
+				{/* <div className='datatable__column'>
 					<div className='datatable__row datatable__header'>REDFIN</div>
 
 					<div className='datatable__row'>
@@ -60,7 +60,7 @@ const DataTable = ({data: {accessor, redfin}}) => {
 						}
 					</div>
 					{getContent(redfin)}
-				</div>
+				</div> */}
 			</div>
 		</div>
 	);

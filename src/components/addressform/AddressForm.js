@@ -26,7 +26,7 @@ const AddressForm = ({ setData, setStatus }) => {
 		setStatus('SCRAPING...');
 
 		// still-reaches-34591.herokuapp.com
-		const response = await fetch('http://localhost:5000/scrape', {
+		const response = await fetch('http://guarded-wave-86238.herokuapp.com//scrape', {
 			method: 'POST',
 			headers: {
 				'content-type': 'application/json',

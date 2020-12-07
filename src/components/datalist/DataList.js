@@ -41,10 +41,10 @@ const DataList = ({data: {accessor, redfin}}) => {
 				<div className='datalist__accessor'>{getAccessorContent(accessor)}</div>
 			</div>
 
-			<div className='datalist__list'>
+			{/* <div className='datalist__list'>
 				<h1 className='datalist__title'>REDFIN</h1>
 				<div className='datalist__redfin'>{getRedfinContent(redfin)}</div>
-			</div>
+			</div> */}
 			
 		</div>
 	);
